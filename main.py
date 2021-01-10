@@ -87,36 +87,36 @@ while command.lower().strip() != 'l':
       confirm = input("Would you like to overwrite your current goal? (Y/N): ")
     else:
       confirm = input("You currently don't have a money management plan. Would you like to create a new goal? (Y/N): ")
-      if confirm.lower().strip() == "n":
-        command = menu.menuDisplay(fields[row][8],fields[row][7],fields[row][2], fields, row)
-      elif confirm.lower().strip() == "y":
-        #Prompts user to enter desired savings amount in a giventime period
-        totalSaving = input("\nHow much money would you like to save (numeric value): ")
-        totalDays = input("How many days do you plan to take to save the desired amount: ")
-        #Determines how much money the client should set aside each day
-        savingPerDay = round(int(totalSaving)/int(totalDays),2)
+    if confirm.lower().strip() == "n":
+      command = menu.menuDisplay(fields[row][8],fields[row][7],fields[row][2], fields, row)
+    elif confirm.lower().strip() == "y":
+      #Prompts user to enter desired savings amount in a giventime period
+      totalSaving = input("\nHow much money would you like to save (numeric value): ")
+      totalDays = input("How many days do you plan to take to save the desired amount: ")
+      #Determines how much money the client should set aside each day
+      savingPerDay = round(int(totalSaving)/int(totalDays),2)
         
-        fields[row][2] = totalSaving
-        fields[row][3] = str(datetime.now().year)
-        fields[row][4] = str(datetime.now().month)
-        fields[row][5] = str(datetime.now().day)
-        fields[row][9] = '0'
-        fields[row][10] = totalDays
-        fields[row][11] = str(datetime.now().day + 1) + "\n"
+      fields[row][2] = totalSaving
+      fields[row][3] = str(datetime.now().year)
+      fields[row][4] = str(datetime.now().month)
+      fields[row][5] = str(datetime.now().day)
+      fields[row][9] = '0'
+      fields[row][10] = totalDays
+      fields[row][11] = str(datetime.now().day + 1) + "\n"
 
-        dataFile = open('clients.txt','w')
-        clientList = 'Username | Password | Goal Balance | Year | Month | Day | Bank Number | Savings Balance | Chequing Balance | Money Towards Goal | Goal Days | Last Plan Deposit Day\n'
-        for r in range (len(fields)):
-          for column in range(12):
-            #if row == len(fields)-1 and column == 0:
-              #clientList+= '\n'+ fields[row][column] + ' '
-            if column != 11:
-              clientList += fields[r][column] + ' '
-            else:
-              clientList+= fields[r][column]
-        dataFile.write(clientList)
-        dataFile.close()
-        command = menu.menuDisplay(fields[row][8],fields[row][7],fields[row][2], fields, row)
+      dataFile = open('clients.txt','w')
+      clientList = 'Username | Password | Goal Balance | Year | Month | Day | Bank Number | Savings Balance | Chequing Balance | Money Towards Goal | Goal Days | Last Plan Deposit Day\n'
+      for r in range (len(fields)):
+        for column in range(12):
+          #if row == len(fields)-1 and column == 0:
+            #clientList+= '\n'+ fields[row][column] + ' '
+          if column != 11:
+            clientList += fields[r][column] + ' '
+          else:
+            clientList+= fields[r][column]
+      dataFile.write(clientList)
+      dataFile.close()
+      command = menu.menuDisplay(fields[row][8],fields[row][7],fields[row][2], fields, row)
   
   elif command.lower().strip() == 'c':
     if fields[row][2].isalpha():
@@ -174,3 +174,4 @@ while command.lower().strip() != 'l':
     
 if command.lower().strip() == 'l':  
   print("Successfully logged out.")
+# print statement saying % away from reaching the savings goal

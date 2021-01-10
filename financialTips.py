@@ -1,7 +1,7 @@
 import random
 
 def randomTip():
-  number = random.randint(0,32)
+  number = random.randint(0,30)
 
   tips = []
   tips.append("Create a good and realistic budget.")

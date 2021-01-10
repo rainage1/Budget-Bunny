@@ -174,4 +174,3 @@ while command.lower().strip() != 'l':
     
 if command.lower().strip() == 'l':  
   print("Successfully logged out.")
-# print statement saying % away from reaching the savings goal

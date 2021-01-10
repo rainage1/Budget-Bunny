@@ -1,7 +1,19 @@
-def menuDisplay(chequingBalance,savingBalance,monetaryGoal):
+from datetime import datetime 
+
+def menuDisplay(chequingBalance,savingBalance,monetaryGoal, fields, row):
     
     
     print("\n{:^33}\n---------------------------------".format("Menu:"))
+    if fields[row][2].isnumeric():  
+      if datetime.now().day - int(fields[row][11].strip()) > 1:
+        print("You forgot to deposit money yesterday into your money management plan!\nDon't worry though. We adjusted the plan and recalculated the amount you should deposit per day for you.\nIt is recommended that you deposit ${:.2f} into your saving account today.\n\n".format(((int(fields[row][2]) - int(fields[row][9])))/(int(fields[row][10]) - (datetime.now().day - int(fields[row][5])))))
+      elif datetime.now().day - int(fields[row][11].strip()) == 1 or datetime.now().day - int(fields[row][11].strip()) == -1:
+        print("Dont forget to deposit ${:.2f} into your saving account today!\n\n".format(((int(fields[row][2]) - int(fields[row][9])))/(int(fields[row][10]) - (datetime.now().day - int(fields[row][5])))))
+      elif datetime.now().day - int(fields[row][11].strip()) == 0:
+        print("Great job! You deposited money into your savings account and are steadily reaching your money management goal.\n\n")
+    else:
+      print("You haven't set a money management plan yet.\n\n")
+
     print("Chequing Balance:      $" + chequingBalance )
     print("Savings Balance:       $" + savingBalance )
     if monetaryGoal == 'none':

@@ -1,5 +1,5 @@
-Username | Password | Goal Balance | Year | Month | Day | Bank Number | Savings Balance | Chequing Balance | Money Towards Goal | Goal Days | Last Plan Deposit Day
+Username | Password | Goal Balance | Year | Month | Day | Bank Number | Savings Balance | Chequing Balance | Money Towards Goal | Goal Days | Last Plan Deposit Date
 hyuan hello123 300 2021 1 10 12345 20 10 0 30 10
 kellygbff 12345bff 200 2021 1 10 123 0 0 0 20 11
 hi bye 0 2021 1 9 12121 10 10 100 20 10
-h y 300 2021 1 10 13345 100 120 20 30 10
+h y 12 2021 1 10 13345 131 133 41 3 10
